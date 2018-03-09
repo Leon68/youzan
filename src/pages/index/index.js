@@ -4,10 +4,9 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
 import { InfiniteScroll } from 'mint-ui'
-Vue.use(InfiniteScroll)
-
 import Foot from 'components/Foot.vue'
 import Swiper from 'components/Swiper.vue'
+Vue.use(InfiniteScroll)
 
 new Vue({
   el: '#app',

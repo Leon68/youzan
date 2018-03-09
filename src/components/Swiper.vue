@@ -32,10 +32,10 @@ export default {
     new Swiper('.swiper-container', {
       autoplay: true,
       loop: true,
-      effect: 'cube',
+      effect: 'flip',
       pagination: {
         el: '.swiper-pagination',
-        type: 'fraction'
+        type: 'bullets'
       }
     })
   }
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style>
-  .swiper-slide a img{
+  .swiper-container .swiper-wrapper .swiper-slide a {
     height: 100%;
     width: 100%;
   }

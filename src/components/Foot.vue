@@ -1,15 +1,57 @@
 <template>
   <div class="bottom-nav">
     <ul>
-      <li class="active"><a href="index.html"><i class="icon-home"></i><div>有赞</div></a></li>
-      <li><a href="category.html"><i class="icon-category"></i><div>分类</div></a></li>
-      <li><a href="##"><i class="icon-cart"></i><div>购物车</div></a></li>
-      <li><a href="##"><i class="icon-user"></i><div>我</div></a></li>
+      <li :class="{active:index === curIndex}"
+          v-for="(list,index) in configData"
+          :key="index"
+          @click="changeIndex(index,list)">
+        <a :href="list.href">
+            <i :class="list.icon"></i>
+            <div>{{list.name}}</div>
+        </a>
+      </li>
     </ul>
   </div>
 </template>
 <script>
-
+let configData = [
+  {
+    name: '有赞',
+    icon: 'icon-home',
+    href: 'index.html'
+  },
+  {
+    name: '分类',
+    icon: 'icon-category',
+    href: 'category.html'
+  },
+  {
+    name: '购物车',
+    icon: 'icon-cart',
+    href: 'cart.html'
+  },
+  {
+    name: '我',
+    icon: 'icon-user',
+    href: 'member.html'
+  }
+]
+export default {
+  name: 'Foot',
+  data () {
+    return {
+      configData: configData,
+      curIndex: 0
+    }
+  },
+  methods: {
+    changeIndex (index, list) {
+      this.curIndex = index
+      window.location.replace(`${list.href}#${this.curIndex}`)
+      console.log(this.curIndex)
+    }
+  }
+}
 </script>
 <style>
   .bottom-nav {
@@ -18,7 +60,7 @@
     height: 50px;
     bottom: 0;
     background-color: #fff;
-    z-index: 8;
+    z-index: 999;
     -o-border-image: url(https://b.yzcdn.cn/v2/image/wap/border-line-2.png) 2 stretch;
     border-image: url(https://b.yzcdn.cn/v2/image/wap/border-line-2.png) 2 stretch;
     border-top: 2px solid #e5e5e5
@@ -35,7 +77,7 @@
   .bottom-nav ul {
     position: relative;
     height: 100%;
-    zoom: 1
+    zoom: 1;
   }
 
   .bottom-nav ul:after {

@@ -15,6 +15,9 @@ new Vue({
     subData: null,
     rankData: null
   },
+  components: {
+    Foot
+  },
   created () {
     this.getTopLists()
     this.getSubLists(0)
@@ -23,9 +26,7 @@ new Vue({
     getTopLists () {
       axios.post(url.topLists).then(res => {
         this.topLists = res.data.lists
-
       }).catch(res => {
-
       })
     },
     getSubLists (index, id) {
@@ -43,14 +44,10 @@ new Vue({
         this.rankData = res.data.data
       })
     },
-    components: {
-      Foot
-    },
     filter: {
       fixed (price) {
         return price.toFixed(2)
       }
     }
-
   }
 })

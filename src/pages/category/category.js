@@ -18,6 +18,11 @@ new Vue({
   components: {
     Foot
   },
+  filters: {
+    fixed: function (price) {
+      return price.toFixed(2)
+    }
+  },
   created () {
     this.getTopLists()
     this.getSubLists(0)
@@ -39,15 +44,13 @@ new Vue({
         })
       }
     },
+    toSearch (list) {
+
+    },
     getRank () {
       axios.post(url.rank).then(res => {
         this.rankData = res.data.data
       })
-    },
-    filter: {
-      fixed (price) {
-        return price.toFixed(2)
-      }
     }
   }
 })

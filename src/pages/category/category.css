@@ -777,6 +777,11 @@ html {
 .inner-content {
   width: 100%;
   margin-bottom: 50px;
+  display: none;
+}
+.inner-content.active{
+  display: block;
+
 }
 
 .inner-content,

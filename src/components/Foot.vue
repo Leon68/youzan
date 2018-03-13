@@ -5,7 +5,7 @@
           v-for="(list,index) in configData"
           :key="index"
           @click="changeIndex(index,list)">
-        <a :href="list.href">
+        <a>
             <i :class="list.icon"></i>
             <div>{{list.name}}</div>
         </a>
@@ -14,6 +14,10 @@
   </div>
 </template>
 <script>
+import qs from 'qs'
+
+let { index } = qs.parse(location.search.substr(1))
+
 let configData = [
   {
     name: '有赞',
@@ -41,13 +45,12 @@ export default {
   data () {
     return {
       configData: configData,
-      curIndex: 0
+      curIndex: parseInt(index) || 0
     }
   },
   methods: {
     changeIndex (index, list) {
-      this.curIndex = index
-      window.location.replace(`${list.href}#${this.curIndex}`)
+      window.location.replace(`${list.href}?index=${index}`)
       console.log(this.curIndex)
     }
   }

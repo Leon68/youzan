@@ -142,6 +142,7 @@
               <li class="category-item js-category-item"
                   v-for="(list, index) in subData.brandList"
                   :key="index"
+                  @click="toSearch()"
                   :data-item-id="list.id"
                   :data-item-name="list.name">
                 <img

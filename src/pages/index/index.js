@@ -1,11 +1,15 @@
 import 'css/common.css'
 import './index.css'
+
 import Vue from 'vue'
 import axios from 'axios'
+
 import url from 'js/api.js'
 import { InfiniteScroll } from 'mint-ui'
+
 import Foot from 'components/Foot.vue'
 import Swiper from 'components/Swiper.vue'
+
 Vue.use(InfiniteScroll)
 
 new Vue({

@@ -79,7 +79,7 @@
                 <ul>
                   <li class="goods-item"
                       v-for="(list,index) in rankData.hotGoods">
-                    <a href="##">
+                    <a :href="'goods.html?id='+list.id">
                       <div class="thumb badge center-img">
                         <img :src="list.image">
                         <span class="num">{{index+1}}</span>

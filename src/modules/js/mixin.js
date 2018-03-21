@@ -1,7 +1,14 @@
+import Foot from 'components/Foot.vue'
+
 let mixin = {
+  components: {
+    Foot
+  },
   filters: {
-   currency(price) {
-     let priceStr = '' +
-   }
+    priceFixed: function (price) {
+      return price.toFixed(2)
+    }
   }
 }
+
+export default mixin

@@ -1,5 +1,6 @@
 import 'css/common.css'
 import url from 'js/api.js'
+import mixin from 'js/mixin.js'
 
 import './search.css'
 
@@ -8,7 +9,6 @@ import axios from 'axios'
 import qs from 'qs'
 import Velocity from 'velocity-animate'
 
-import Foot from 'components/Foot.vue'
 
 let {keyword, id} = qs.parse(location.search.substr(1))
 
@@ -19,14 +19,7 @@ new Vue({
     keyword,
     topShow: false
   },
-  components: {
-    Foot
-  },
-  filters: {
-    priceFixed: function (price) {
-      return price.toFixed(2)
-    }
-  },
+  mixin: [mixin],
   created () {
     this.getSearchList()
   },

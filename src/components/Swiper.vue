@@ -28,8 +28,8 @@ export default {
   created () {
     console.log(this.lists)
   },
-  mounted () {
-    new Swiper('.swiper-container', {
+  mounted: function () {
+    let mySwiper = new Swiper('.swiper-container', {
       autoplay: true,
       loop: true,
       effect: 'flip',

@@ -33,7 +33,8 @@ new Vue({
     skuType: null,
     showSku: false,
     skuNum: 1,
-    isAddCart: false
+    isAddCart: false,
+    hadAddCart: false
   },
   mixins: [mixin],
   components: {
@@ -85,6 +86,7 @@ new Vue({
         if (res.data.status === 200) {
           this.showSku = false
           this.isAddCart = true
+          this.hadAddCart = true
           setTimeout(() => {
             this.isAddCart = false
           }, 1000)

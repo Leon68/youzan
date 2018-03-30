@@ -25,7 +25,8 @@ new Vue({
   methods: {
     getCartLists () {
       axios.post(url.cartLists).then(res => {
-        this.cartLists = res.data.lists
+        console.log(res)
+        this.cartLists = res.data.cartList
       })
     }
 

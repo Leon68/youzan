@@ -817,12 +817,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 .block-item-cart.editing .name-card .title {
-  visibility: hidden
 }
 
 .block-item-cart.editing .name-card .num {
-  left: 0;
-  top: 0
+  right: 0;
+  bottom: 0
 }
 
 .block-item-cart.editing .name-card .detail .sku {

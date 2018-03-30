@@ -9,7 +9,6 @@ import axios from 'axios'
 import qs from 'qs'
 import Velocity from 'velocity-animate'
 
-
 let {keyword, id} = qs.parse(location.search.substr(1))
 
 new Vue({
@@ -19,7 +18,7 @@ new Vue({
     keyword,
     topShow: false
   },
-  mixin: [mixin],
+  mixins: [mixin],
   created () {
     this.getSearchList()
   },

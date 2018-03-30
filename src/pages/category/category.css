@@ -694,8 +694,7 @@ html {
 .with-bottom-nav,
 .with-bottom-nav .class-nav {
   padding-top: 45px;
-  padding-bottom: 50px;
-  margin-bottom: 80px;
+  padding-bottom: 50px
 }
 
 .with-bottom-nav .class-nav {
@@ -773,15 +772,14 @@ html {
   padding-top: 11px;
   box-sizing: border-box
 }
-
-.inner-content {
-  width: 100%;
-  margin-bottom: 50px;
+#scroll-main-content.inner-content {
   display: none;
 }
-.inner-content.active{
+#scroll-main-content.inner-content.active {
   display: block;
-
+}
+.inner-content {
+  width: 100%;
 }
 
 .inner-content,
@@ -1082,8 +1080,7 @@ only screen and (min-device-pixel-ratio:1.5) {
 }
 
 .keywords-list {
-  padding-bottom: 20px;
-  position: relative;
+  padding-bottom: 20px
 }
 
 .keywords-list li {
@@ -1112,7 +1109,7 @@ only screen and (min-device-pixel-ratio:1.5) {
 }
 
 .keywords-list li a {
-  display: block;
+  display: inline-block;
   padding: 6px 15px
 }
 
@@ -1130,7 +1127,7 @@ only screen and (min-device-pixel-ratio:1.5) {
   position: relative;
   font-size: 14px;
   height: 140px;
-  margin-left: 150px;
+  margin-left: 150px
 }
 
 .hot-goods-wrap .goods-item .title {
@@ -1214,18 +1211,18 @@ only screen and (min-device-pixel-ratio:1.5) {
 
 .hot-shop-wrap .shop-name .name {
   float: left;
-  margin-right: 10px;
+  margin-right: 10px
 }
 
 .hot-shop-wrap .follows {
   padding-top: 5px;
-  margin-left: 0;
+  margin-left: 0
 }
 
 .hot-shop-wrap .shop-item {
   padding: 12px;
   background-color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 10px
 }
 
 .hot-shop-wrap .shop-item:last-child {

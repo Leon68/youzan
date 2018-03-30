@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="search-content" style="display: none;"></div>
-    <div class="content" style="height: 100vh;">
+    <div class="content" style="height: 100%;">
       <div class="class-nav">
         <div id="scroll-nav" style="height: 100%;">
           <ul class="nav" id="scroll-nav-content" style="height: 100vh; transform: translate3d(0px, 0px, 0px);">
@@ -69,7 +69,7 @@
         <div id="scroll-main-wrap" class="main-content">
           <div id="scroll-main-content" class="js-main-content inner-content"
                v-if="rankData"
-               :class="{active:topIndex===0}">
+               :class="{active:topIndex === 0}">
             <div class="hot-wrap">
               <div class="hot-goods">
                 <div class="hot-title">
@@ -81,7 +81,7 @@
                       v-for="(list,index) in rankData.hotGoods">
                     <a :href="'goods.html?id='+list.id">
                       <div class="thumb badge center-img">
-                        <img :src="list.image">
+                        <img :src="list.img">
                         <span class="num">{{index+1}}</span>
                       </div>
                       <div class="detail">
@@ -110,13 +110,13 @@
                     </div>
                     <ul class="shop-images">
                       <li>
-                        <a href="##"><img :src="list.images[0]"></a>
+                        <a href="##"><img :src="list.imgs[0]"></a>
                       </li>
                       <li>
-                        <a href="##"><img :src="list.images[1]"></a>
+                        <a href="##"><img :src="list.imgs[1]"></a>
                       </li>
                       <li>
-                        <a href="##"><img :src="list.images[2]"></a>
+                        <a href="##"><img :src="list.imgs[2]"></a>
                       </li>
                     </ul>
                   </li>
@@ -146,7 +146,7 @@
                   :data-item-id="list.id"
                   :data-item-name="list.name">
                 <img
-                  :src="list.image"
+                  :src="list.img"
                   :alt="list.name" class="category-img">
                 <span class="category-item-name">{{list.name}}</span>
               </li>
@@ -160,7 +160,7 @@
                   :data-item-id="list.id"
                   :data-item-name="list.name">
                 <img
-                  :src="list.image"
+                  :src="list.img"
                   :alt="list.name" class="category-img">
                 <span class="category-item-name">{{list.name}}</span>
               </li>

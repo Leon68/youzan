@@ -14,7 +14,7 @@ new Vue({
     subData: null,
     rankData: null
   },
-  mixin: [mixin],
+  mixins: [mixin],
   created () {
     this.getTopLists()
     this.getSubLists(0)
@@ -31,7 +31,7 @@ new Vue({
       if (index === 0) {
         this.getRank()
       } else {
-        axios.post(url.subLists, id).then(res => {
+        axios.post(url.subList, id).then(res => {
           this.subData = res.data.data
         })
       }

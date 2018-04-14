@@ -50,7 +50,7 @@ new Vue({
         this.detailsList.imgs.forEach(img => {
           this.swipLists.push({
             urlClick: '',
-            image: img
+            img: img
           })
         })
       })

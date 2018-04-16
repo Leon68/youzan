@@ -48,25 +48,26 @@
                           <img class="js-lazy" :src="goods.img">
                         </a>
                         <div class="detail">
-                          <a class="js-goods-link">
-                            <h3 class="title js-ellipsis">
-                              <i>
-                                {{goods.title}}
-                              </i>
-                            </h3>
-                          </a>
-                          <p class="sku ellipsis">
-                            {{goods.sku}}
-                          </p>
+                            <a class="js-goods-link" v-show="!shop.editing">
+                              <h3 class="title js-ellipsis">
+                                <i>
+                                  {{goods.title}}
+                                </i>
+                              </h3>
+                            </a>
+                            <p class="sku ellipsis">
+                              {{goods.sku}}
+                            </p>
+
                           <!-- 显示状态 -->
-                          <div class="num" v-show="!shop.editing">
+                          <div class="number" v-show="!shop.editing">
                             x<span class="num-txt">{{goods.number}}</span>
                           </div>
                           <!-- 编辑状态 -->
                           <div class="num" v-show="shop.editing">
                             <div class="quantity">
                               <button type="button" class="minus disabled"></button>
-                              <input type="text" pattern="[0-9]*" class="txt" value="1">
+                              <input type="text" pattern="[0-9]*" class="txt" v-model="goods.number">
                               <button type="button" class="plus "></button>
                               <div class="response-area response-area-minus"></div>
                               <div class="response-area response-area-plus"></div>
@@ -145,7 +146,7 @@
                 结算
               </button>
               <!-- 编辑状态 -->
-              <button href="javascript:;" disabled="disabled" style="display: none" class="j-delete-goods btn font-size-14 btn-red">删除
+              <button href="javascript:;" disabled="disabled" v-show="removeChecked" class="j-delete-goods btn font-size-14 btn-red">删除
               </button>
             </div>
           </div>

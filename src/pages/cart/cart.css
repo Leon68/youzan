@@ -639,7 +639,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   margin-left: 73px
 }
 
-.block-list-cart .block-item-cart .name-card .num {
+.block-list-cart .block-item-cart .name-card .number {
   color: #666;
   font-weight: 100;
   font-size: 12px;
@@ -648,6 +648,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
   bottom: 0
 }
 
+.block-list-cart .block-item-cart .name-card .num .quantity  {
+  position: relative;
+  display: block;
+  padding-bottom: 8px;
+}
 .block-list-cart .block-item-cart .name-card .num .quantity .response-area {
   width: 32px;
   height: 60px;

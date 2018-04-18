@@ -14,7 +14,9 @@ new Vue({
   el: '#app',
   data: {
     cartLists: null,
-    total: 0
+    total: 0,
+    editingShop: null,
+    editingShopIndex: -1
   },
   mixins: [mixin],
   computed: {
@@ -61,10 +63,12 @@ new Vue({
         let cartLists = res.data.cartList
         cartLists.forEach(shop => {
           shop.checked = true
+          shop.removeChecked = false
           shop.editing = false
           shop.editingMsg = '编辑'
           shop.goodsList.forEach(goods => {
             goods.checked = true
+            goods.removeChecked = false
           })
         })
         this.cartLists = cartLists

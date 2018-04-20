@@ -130,6 +130,25 @@ new Vue({
       })
       this.editingShop = shop.editing ? shop : null
       this.editingShopIndex = shop.editing ? shopIndex : -1
+    },
+    add (goods) {
+      console.log('add')
+      axios.post(url.cartAdd, {
+        id: goods.id,
+        number: 1
+      }).then(res => {
+        console.log('nobody')
+        goods.number++
+      })
+    },
+    reduce (goods) {
+      if (goods.number === 1) return
+      axios.post(url.cartReduce, {
+        id: goods.id,
+        number: 1
+      }).then(res => {
+        goods.number--
+      })
     }
   }
 })

@@ -45,7 +45,9 @@
                 <ul class="js-list block block-list block-list-cart border-0">
                   <li class="block-item block-item-cart " :class="{editing:shop.editing}" v-for="(goods,goodsIndex) in shop.goodsList">
                     <div>
-                      <div class="check-container" @click="selectGoods(shop,goods)"><span class="check" :class="{checked:goods.checked}"></span></div>
+                      <div class="check-container" @click="selectGoods(shop,goods)">
+                        <span class="check" :class="{checked:editingShop ? goods.removeChecked : goods.checked}"></span>
+                      </div>
                       <div class="name-card clearfix">
                         <a :href="'goods.html?id='+goods.id" class="thumb js-goods-link">
                           <img class="js-lazy" :src="goods.img">
@@ -137,8 +139,9 @@
               你需要分开结算每个店铺的商品哦~
             </div>
             <div class="bottom-cart clear-fix">
-              <div class="select-all">
-                <span class="check" :class="{checked: allSelected}" @click="selectAll"></span>全选
+              <div class="select-all" @click="selectAll">
+                <span class="check" :class="{checked: editingShop ? allRemoveSelected : allSelected}" ></span>
+                全选
               </div>
               <!-- 显示状态 -->
               <div class="total-price" style="display: block;">

@@ -16,7 +16,9 @@ new Vue({
     cartLists: null,
     total: 0,
     editingShop: null,
-    editingShopIndex: -1
+    editingShopIndex: -1,
+    isRemoveGoods: false,
+    removeData: null
   },
   mixins: [mixin],
   computed: {
@@ -115,6 +117,30 @@ new Vue({
       shop[attr] = shop.goodsList.every(goods => {
         return goods[attr]
       })
+    },
+    removeGoods (shop, shopIndex, goods, goodsIndex) {
+      this.isRemoveGoods = true
+      this.removeData = {
+        shop, shopIndex, goods, goodsIndex
+      }
+    },
+    confirmRemove () {
+      let {shop, shopIndex, goods, goodsIndex} = this.removeData
+      axios.post(url.cartRemove, {
+        id: goods.id
+      }).then(res => {
+        shop.goodsList.splice(goodsIndex, 1)
+        if (shop.goodsList.length === 0) {
+          this.cartLists.splice(shopIndex, 1)
+          this.cartLists.forEach(item => {
+            item.editingMsg = '编辑'
+          })
+        }
+        this.isRemoveGoods = false
+      })
+    },
+    cancelRemove () {
+      this.isRemoveGoods = false
     },
     selectAll () {
       let attr = this.editingShop ? 'allRemoveSelected' : 'allSelected'

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions,vue/no-side-effects-in-computed-properties,no-new */
 import 'css/common.css'
 import url from 'js/api.js'
 
@@ -7,6 +8,7 @@ import './cart_trade.css'
 
 import Vue from 'vue'
 import axios from 'axios'
+import Velocity from 'velocity-animate'
 
 import mixin from 'js/mixin.js'
 
@@ -189,6 +191,24 @@ new Vue({
       })
       this.cartLists.splice(this.editingShopIndex, 1)
       this.removeShop()
+    },
+    slideStart (e, goods) {
+      goods.startX = e.changedTouches[0].clientX
+    },
+    slideEnd: function (e, shopIndex, goods, goodsIndex) {
+      let endX = e.changedTouches[0].clientX
+      let slideLeft = '0'
+      if (goods.startX - endX > 100) {
+        slideLeft = '-60px'
+        console.log('left')
+      }
+      if (endX - goods.startX > 100) {
+        slideLeft = '0'
+      }
+      console.log(this.$refs[`goods-${shopIndex}-${goodsIndex}`])
+      Velocity(this.$refs[`goods-${shopIndex}-${goodsIndex}`], {
+        slideLeft
+      })
     },
     edit (shop, shopIndex) {
       shop.editing = !shop.editing

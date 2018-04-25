@@ -44,11 +44,13 @@
               </div>
               <div>
                 <ul class="js-list block block-list block-list-cart border-0">
-                  <li class="block-item block-item-cart " :class="{editing:shop.editing}"
+                  <li class="block-item block-item-cart "
+                      :ref="'goods-' + shopIndex + '-' + goodsIndex"
+                      :class="{editing:shop.editing}"
+                      v-for="(goods,goodsIndex) in shop.goodsList"
+                      :key="goods.id"
                       @touchstart="slideStart($event, goods)"
                       @touchend="slideEnd($event, shopIndex, goods, goodsIndex)"
-                      v-for="(goods,goodsIndex) in shop.goodsList"
-                      :ref="'goods-' + shopIndex + '-' + goodsIndex"
                   >
                     <div>
                       <div class="check-container" @click="selectGoods(shop,goods)">

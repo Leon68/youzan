@@ -195,19 +195,21 @@ new Vue({
     slideStart (e, goods) {
       goods.startX = e.changedTouches[0].clientX
     },
-    slideEnd: function (e, shopIndex, goods, goodsIndex) {
+    slideEnd (e, shopIndex, goods, goodsIndex) {
       let endX = e.changedTouches[0].clientX
       let slideLeft = '0'
       if (goods.startX - endX > 100) {
         slideLeft = '-60px'
-        console.log('left')
       }
       if (endX - goods.startX > 100) {
-        slideLeft = '0'
+        slideLeft = '0px'
       }
+      console.log(slideLeft)
       console.log(this.$refs[`goods-${shopIndex}-${goodsIndex}`])
       Velocity(this.$refs[`goods-${shopIndex}-${goodsIndex}`], {
-        slideLeft
+        left: slideLeft
+      }, {
+        duration: 600
       })
     },
     edit (shop, shopIndex) {

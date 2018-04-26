@@ -1,25 +1,35 @@
-import 'css/common.css'
-import url from 'js/api.js'
-
-import './member.css'
-import './member_base.css'
-
 import Vue from 'vue'
-import axios from  'axios'
+import Router from 'vue-router'
 
-import Foot from 'components/Foot.vue'
+import Member from './components/member.vue'
+import Address from './components/address.vue'
+import All from './components/all.vue'
+import Form from './components/form.vue'
 
-new Vue({
-  el: '#app',
-  data: {
-  },
-  components: {
-    Foot
-  },
-  created () {
+Vue.use(Router)
 
-  },
-  methods: {
+let routes = [{
+  path: '/',
+  component: Member
+}, {
+  path: '/address',
+  component: Address,
+  children: [{
+    path: '',
+    component: All
+  }, {
+    path: 'all',
+    component: All
+  }, {
+    path: 'form',
+    component: Form
 
-  }
+  }]
+}]
+
+let router = new Router({
+  routes
 })
+const app = new Vue({
+  router
+}).$mount('#app')

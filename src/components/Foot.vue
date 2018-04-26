@@ -51,7 +51,6 @@ export default {
   methods: {
     changeIndex (index, list) {
       window.location.replace(`${list.href}?index=${index}`)
-      console.log(this.curIndex)
     }
   }
 }

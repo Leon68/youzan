@@ -16,12 +16,15 @@ let routes = [{
   component: Address,
   children: [{
     path: '',
-    component: All
+    // component: All
+    redirect: 'all'
   }, {
     path: 'all',
+    name: 'all',
     component: All
   }, {
     path: 'form',
+    name: 'form',
     component: Form
 
   }]

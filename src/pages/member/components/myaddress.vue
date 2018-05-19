@@ -2,6 +2,7 @@
   <div>
     <group>
       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" @on-shadow-change="onShadowChange" placeholder="请选择地址" :show.sync="showAddress"></x-address>
+      <!--<x-address @@on-shadow-change="sendAddressValue(value)" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" :show.sync="showAddress"></x-address>-->
     </group>
   </div>
 </template>
@@ -10,6 +11,7 @@
 import { Group, XAddress, ChinaAddressV4Data, XButton, Value2nameFilter as value2name } from 'vux'
 
 export default {
+  props: [ 'value' ],
   components: {
     Group,
     XAddress,
@@ -18,14 +20,7 @@ export default {
   data () {
     return {
       title: '选择地址',
-      value_0_1: [],
-      value: [],
-      title2: '设置值',
-      value2: ['天津市', '市辖区', '和平区'],
-      value3: ['广东省', '中山市', '--'],
       addressData: ChinaAddressV4Data,
-      value4: [],
-      value5: ['广东省', '深圳 市', '南山区'],
       showAddress: false
     }
   },
@@ -37,7 +32,8 @@ export default {
       }, 2000)
     },
     onShadowChange (ids, names) {
-      console.log(ids, names)
+      console.log('change', ids, names, 'value', this.value)
+      this.$emit('sendAddressValue', ids, names)
     },
     changeData () {
       this.value2 = ['430000', '430400', '430407']
@@ -56,6 +52,9 @@ export default {
     },
     logShow (str) {
       console.log('on-show')
+    },
+    sendAddressValue() {
+      console.log('send', this.value)
     }
   }
 }

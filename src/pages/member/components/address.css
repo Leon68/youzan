@@ -337,7 +337,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .form {
   width: 100%;
   margin: 0;
-  padding: 0;
   padding-left: 10px;
   padding-right: 10px;
   list-style: none;
@@ -358,7 +357,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .form .block-item {
   display: table;
   width: 100%;
-  padding: 0
 }
 
 .form .block-item label {
@@ -645,7 +643,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 .block-item label,
 .block-item input {
-  vertical-align: middle
+  vertical-align: middle;
 }
 
 .search-form .close-icon {

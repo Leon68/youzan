@@ -11,8 +11,8 @@
           <label>联系电话</label>
           <input type="tel" placeholder="联系电话" name="tel" v-model="tel" maxlength="11">
         </div>
-        <div class="block-item">
-          <xaddress></xaddress>
+        <div class="">
+          <myaddress :value="value" @sendAddressValue="getAddressValue"></myaddress>
         </div>
         <div class="block-item">
           <label>详细地址</label>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="block section js-save block-control-btn">
-      <div class="block-item c-blue center">保存</div>
+      <div class="block-item c-blue center" @click="add">保存</div>
     </div>
     <div class="block section js-delete block-control-btn" v-show="type==='edit'">
       <div class="block-item c-red center">删除</div>

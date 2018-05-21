@@ -32,7 +32,6 @@ export default {
       }, 2000)
     },
     onShadowChange (ids, names) {
-      console.log('change', ids, names, 'value', this.value)
       this.$emit('sendAddressValue', ids, names)
     },
     changeData () {

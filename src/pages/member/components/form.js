@@ -62,10 +62,7 @@ export default {
       this.address = address.address
       this.id = address.id
       this.ids = [ address.provinceValue, address.cityValue, address.districtValue ]
-      this.names = [ address.provinceName, address.cityName, address.districtName ]
-      this.value = [ address.provinceValue, address.cityValue, address.districtValue ]
-      console.log('ids', this.ids)
-      console.log('names', this.names)
+      this.value = [ address.provinceValue.toString(), address.cityValue, address.districtValue ]
       // this.provinceValue = address.provinceName
       // this.cityName = address.cityName
       // this.area = address.districtName

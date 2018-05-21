@@ -23,10 +23,14 @@
     <div class="block section js-save block-control-btn">
       <div class="block-item c-blue center" @click="add">保存</div>
     </div>
-    <div class="block section js-delete block-control-btn" v-show="type==='edit'">
+    <div class="block section js-delete block-control-btn"
+         @click="remove"
+         v-show="type==='edit'">
       <div class="block-item c-red center">删除</div>
     </div>
-    <div class="block stick-bottom-row center js-save-default " v-show="type==='edit'">
+    <div class="block stick-bottom-row center js-save-default "
+         @click="setDefaultAddress"
+         v-show="type==='edit'">
       <button class="btn btn-standard js-save-default-btn">设为默认收货地址</button>
     </div>
   </div>

@@ -26,9 +26,7 @@ export default {
       let { name, tel, ids, names, address } = this
       let data = { name, tel, ids, names, address }
       if (this.type === 'add') {
-        Address.add(data).then(res => {
-          this.$router.go(-1)
-        })
+        this.$store.dispatch('addLists', data)
       }
       if (this.type === 'edit') {
         Address.add(data).then(res => {
@@ -50,8 +48,9 @@ export default {
     },
     getAddressValue(ids, names) {
       this.addressIds = ids
+      this.value = ids
       this.addressNames = names
-      console.log('father', ids, names)
+      console.log('father', 'value', this.value, 'ids', ids, 'names', names)
     }
   },
   created() {

@@ -12,7 +12,7 @@
           <input type="tel" placeholder="联系电话" name="tel" v-model="tel" maxlength="11">
         </div>
         <div class="">
-          <myaddress :value="value" @sendAddressValue="getAddressValue"></myaddress>
+          <myaddress :ids="ids" @sendAddressValue="getAddressValue"></myaddress>
         </div>
         <div class="block-item">
           <label>详细地址</label>

@@ -1,38 +1,9 @@
+
 import Vue from 'vue'
-import Router from 'vue-router'
+import router from './router'
+import store from './vuex'
 
-import Member from './components/member.vue'
-import Address from './components/address.vue'
-import All from './components/all.vue'
-import Form from './components/form.vue'
-
-Vue.use(Router)
-
-let routes = [{
-  path: '/',
-  component: Member
-}, {
-  path: '/address',
-  component: Address,
-  children: [{
-    path: '',
-    // component: All
-    redirect: 'all'
-  }, {
-    path: 'all',
-    name: 'all',
-    component: All
-  }, {
-    path: 'form',
-    name: 'form',
-    component: Form
-
-  }]
-}]
-
-let router = new Router({
-  routes
-})
 const app = new Vue({
-  router
+  router,
+  store
 }).$mount('#app')

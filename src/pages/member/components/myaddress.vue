@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" @on-shadow-change="onShadowChange" placeholder="请选择地址" :show.sync="showAddress"></x-address>
+      <x-address @on-hide="logHide" @on-show="logShow" :title="title" :value="value" :list="addressData" @on-shadow-change="onShadowChange" placeholder="请选择地址" :show.sync="showAddress"></x-address>
       <!--<x-address @@on-shadow-change="sendAddressValue(value)" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" :show.sync="showAddress"></x-address>-->
     </group>
   </div>
@@ -11,7 +11,7 @@
 import { Group, XAddress, ChinaAddressV4Data, XButton, Value2nameFilter as value2name } from 'vux'
 
 export default {
-  props: [ 'value' ],
+  props: [ 'ids' ],
   components: {
     Group,
     XAddress,
@@ -21,7 +21,8 @@ export default {
     return {
       title: '选择地址',
       addressData: ChinaAddressV4Data,
-      showAddress: false
+      showAddress: false,
+      value: this.ids
     }
   },
   methods: {
@@ -32,6 +33,8 @@ export default {
       }, 2000)
     },
     onShadowChange (ids, names) {
+      console.log('change', ids, names)
+      this.value = ids
       this.$emit('sendAddressValue', ids, names)
     },
     changeData () {

@@ -26,25 +26,24 @@ export default {
       console.log('this', this)
       let data = { name, tel, cityName, provinceName, ids, districtName, address }
       if (this.type === 'add') {
+        data.id = parseInt(Math.random() * 10000)
         this.$store.dispatch('addLists', data)
       }
       if (this.type === 'edit') {
-        Address.add(data).then(res => {
-          this.$router.go(-1)
-        })
+        data.id = this.id
+        this.$store.dispatch('updateAction', data)
       }
     },
     remove() {
       if (window.confirm('确认删除？')) {
-        Address.remove(this.id).then(res => {
-          this.$router.go(-1)
-        })
+        this.$store.dispatch('removeAction', this.id)
       }
     },
     setDefaultAddress() {
-      Address.setDefault(this.id).then(res => {
-        this.$router.go(-1)
-      })
+      // Address.setDefault(this.id).then(res => {
+      //   this.$router.go(-1)
+      // })
+      this.$store.dispatch('setDefaultAction', this.id)
     },
     getAddressValue(ids, names) {
       this.ids = ids

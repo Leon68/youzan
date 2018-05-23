@@ -15,6 +15,26 @@ const store = new Vuex.Store({
     add(state, instance) {
       console.log('isntance', instance)
       state.lists.push(instance)
+    },
+    remove(state, id) {
+      let lists = state.lists
+      let index = lists.findIndex(item => {
+        return item.id === id
+      })
+      lists.splice(index, 1)
+    },
+    update(state, instance) {
+      let lists = state.lists
+      let index = lists.findIndex(item => {
+        return item.id === instance.id
+      })
+      lists[index] = instance
+    },
+    setDefault(state, id) {
+      let lists = state.lists
+      lists.forEach(item => {
+        item.isDefault = item.id === id ? true : false
+      })
     }
 
   },
@@ -27,6 +47,22 @@ const store = new Vuex.Store({
     addLists({commit}, instance) {
       Address.add(instance).then(res => {
         commit('add', instance)
+      })
+    },
+    removeAction({commit}, id) {
+      Address.remove(id).then(res => {
+        commit('remove', id)
+      })
+    },
+    updateAction({commit}, instance) {
+      Address.update(instance).then(res => {
+        commit('update', instance)
+      })
+    },
+    setDefaultAction({commit}, id) {
+      console.log('id', id)
+      Address.setDefault(id).then(res => {
+        commit('setDefault', id)
       })
     }
   }

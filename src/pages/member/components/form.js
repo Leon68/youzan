@@ -60,8 +60,11 @@ export default {
     }
   },
   watch: {
-    lists() {
-      this.$router.go(-1)
+    lists: {
+      handler() {
+        this.$router.go(-1)
+      },
+      deep: true
     }
   },
   created() {

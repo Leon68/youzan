@@ -13,7 +13,7 @@ const store = new Vuex.Store({
       state.lists = lists
     },
     add(state, instance) {
-      console.log(instance)
+      console.log('isntance', instance)
       state.lists.push(instance)
     }
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <x-address @on-hide="logHide" @on-show="logShow" :title="title" :value="value" :list="addressData" @on-shadow-change="onShadowChange" placeholder="请选择地址" :show.sync="showAddress"></x-address>
+      <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" @on-shadow-change="onShadowChange" placeholder="请选择地址" :show.sync="showAddress"></x-address>
       <!--<x-address @@on-shadow-change="sendAddressValue(value)" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" :show.sync="showAddress"></x-address>-->
     </group>
   </div>
@@ -22,7 +22,7 @@ export default {
       title: '选择地址',
       addressData: ChinaAddressV4Data,
       showAddress: false,
-      value: this.ids
+      value: JSON.parse(JSON.stringify(this.ids))
     }
   },
   methods: {
@@ -34,7 +34,6 @@ export default {
     },
     onShadowChange (ids, names) {
       console.log('change', ids, names)
-      this.value = ids
       this.$emit('sendAddressValue', ids, names)
     },
     changeData () {

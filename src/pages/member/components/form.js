@@ -8,12 +8,11 @@ export default {
       tel: '',
       address: '',
       id: '',
-      provinceValue: '',
+      provinceName: '',
       cityName: '',
-      area: '',
+      districtName: '',
       names: [],
       ids: [],
-      value: [],
       type: this.$route.query.type,
       instance: this.$route.query.instance
     }
@@ -23,8 +22,9 @@ export default {
   },
   methods: {
     add() {
-      let { name, tel, ids, names, address } = this
-      let data = { name, tel, ids, names, address }
+      let { name, tel, provinceName, cityName, ids, districtName, address } = this
+      console.log('this', this)
+      let data = { name, tel, cityName, provinceName, ids, districtName, address }
       if (this.type === 'add') {
         this.$store.dispatch('addLists', data)
       }
@@ -47,10 +47,22 @@ export default {
       })
     },
     getAddressValue(ids, names) {
-      this.addressIds = ids
-      this.value = ids
-      this.addressNames = names
-      console.log('father', 'value', this.value, 'ids', ids, 'names', names)
+      this.ids = ids
+      this.names = names
+      this.provinceName = names[0]
+      this.cityName = names[1]
+      this.districtName = names[2]
+      console.log('father', 'ids', this.ids, 'names', names)
+    }
+  },
+  computed: {
+    lists() {
+      return this.$store.state.lists
+    }
+  },
+  watch: {
+    lists() {
+      this.$router.go(-1)
     }
   },
   created() {
@@ -60,8 +72,7 @@ export default {
       this.tel = address.tel
       this.address = address.address
       this.id = address.id
-      this.ids = [ address.provinceValue, address.cityValue, address.districtValue ]
-      this.value = [ address.provinceValue.toString(), address.cityValue, address.districtValue ]
+      this.ids = address.ids ? address.ids : [ address.provinceValue.toString(), address.cityValue, address.districtValue ]
       // this.provinceValue = address.provinceName
       // this.cityName = address.cityName
       // this.area = address.districtName

@@ -34,7 +34,7 @@ const store = new Vuex.Store({
     setDefault(state, id) {
       let lists = state.lists
       lists.forEach(item => {
-        item.isDefault = item.id === id ? true : false
+        item.isDefault = item.id === id
       })
     }
 

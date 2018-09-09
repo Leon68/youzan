@@ -28,7 +28,7 @@
 </head>
 
 <body class=" " style="">
-<div id="app">
+<div id="app" v-cloak>
   <div class="container with-bottom-nav" style="min-height: 667px; height: 100vh;">
     <div class="custom-search js-search-bar">
       <form>
@@ -57,6 +57,7 @@
     </div>
     <div class="search-content" style="display: none;"></div>
     <div class="content" style="height: 100%;">
+      <!--侧边导航栏-->
       <div class="class-nav">
         <div id="scroll-nav" style="height: 100%;">
           <ul class="nav" id="scroll-nav-content" style="height: 100vh; transform: translate3d(0px, 0px, 0px);">
@@ -70,8 +71,10 @@
           </ul>
         </div>
       </div>
+      <!--右边商品栏-->
       <div class="class-category">
         <div id="scroll-main-wrap" class="main-content">
+          <!--热销商品-->
           <div id="scroll-main-content" class="js-main-content inner-content"
                v-if="rankData"
                :class="{active:topIndex === 0}">
@@ -138,6 +141,7 @@
               </div>
             </div>
           </div>
+          <!--热门分类-->
           <div id="scroll-main-content" class="js-main-content inner-content"
                :class="{active:topIndex > 0}"
                v-if="subData"

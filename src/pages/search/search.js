@@ -8,6 +8,11 @@ import Vue from 'vue'
 import axios from 'axios'
 import qs from 'qs'
 import Velocity from 'velocity-animate'
+import 'velocity-animate/velocity.ui.js'
+import { Spinner, InfiniteScroll } from 'mint-ui'
+
+Vue.use(InfiniteScroll)
+Vue.component(Spinner.name, Spinner)
 
 let {keyword, id} = qs.parse(location.search.substr(1))
 

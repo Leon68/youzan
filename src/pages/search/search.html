@@ -28,7 +28,7 @@
 </head>
 
 <body class=" " style="min-height: 667px;">
-  <div class="container with-top-search" style="min-height: 667px;">
+  <div class="container with-top-search" style="min-height: 667px;" v-cloak>
     <div class="custom-search js-search-bar">
       <form>
         <input type="search" class="custom-search-input" autocomplete="off" name="keyword" :value="keyword" placeholder="搜索更赞的商品" style="padding-left: 66px;">
@@ -76,6 +76,13 @@
           </li>
         </ul>
         <div class="list-finished">已经没有更多了</div>
+      </div>
+    </div>
+    <div v-if="!searchLists">
+      <div style="display: flex;justify-content: center; align-items: center; flex-direction: column; position: absolute; margin: 0 auto; text-align: center; z-index:9999; left: 50%;top: 50%;transform: translate(-50%,-50%);">
+        <mt-spinner  color="#26a2ff"></mt-spinner>
+        <div style="margin-top: 20px;">数据加载中...</div>
+
       </div>
     </div>
     <div class="go-to-top" v-show="topShow" @click="toTop"  style="display: block; transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);"></div>

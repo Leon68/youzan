@@ -17,6 +17,7 @@ new Vue({
   data: {
     lists: null,
     pageNum: 1,
+    pageSize: 10,
     loading: false,
     allLoaded: false,
     bannerLists: null
@@ -30,10 +31,7 @@ new Vue({
       // 判断数据是否加载完毕
       if (this.allLoaded) return
       this.loading = true
-      axios.post(url.hostLists, {
-        pageNum: this.pageNum,
-        pageSize: this.pageSize
-      }).then(res => {
+      axios.get(`${url.hostLists}?pageNum=${this.pageNum}&pageSize=${this.pageSize}`).then(res => {
         let curLists = res.data.lists
         if (curLists.length < this.pageSize) {
           this.allLoaded = true

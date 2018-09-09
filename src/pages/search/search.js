@@ -42,7 +42,7 @@ new Vue({
       }
     },
     toTop () {
-      Velocity(document.body, 'scroll', {duration: 1000})
+      document.documentElement.velocity({scrollTop: 0}, {duration: 400})
       this.topShow = false
     }
   }

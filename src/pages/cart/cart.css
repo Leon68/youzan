@@ -716,14 +716,13 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 .check {
   border-radius: 100%;
-  border: 1px solid red;
   display: inline-block;
   margin: 17px 0 0;
   vertical-align: middle;
   line-height: 60px;
   width: 18px;
   height: 18px;
-  background-image: url(data:image/png;base64,ivborw0kggoaaaansuheugaaacqaaaakcamaaadw3miqaaaavfbmveuaaacampqioqkzmzmampqampqampqampqcnjyqqqqampqampqampqampqbm5v///+zmzn5+fn09ptw8pdm5ubr0dhpz8/jycm7u7uxsbgdnz3d3d2kak0raaaad3rstlmavrdz2cwqutsdxdaiovxmafd6aaaa6kleqvq4y42uwraeiaweefevxn25/z2h6ohtb5judz9sbbjxrzz1eivhfnsnfhbsadec1bljyryis1ckt0asq99p3fxdailjhzjuaz20utdtsjxllvmcmfv1oj0blfcqp3ng9cniz50vywdtfjby+t7rpmd+1nhh2pgob8yr3nsirk0r1k4addvyt8rjznzn9qfod0gdkkiafuvhaqpraymvnaavkfw+ue9sedd5qh0qixd39pqhrbcrhe+8/t+cmtpmhvusnadmfrxop2n9x84gseakm5ycmwcvdp7q4s8xqhbvsq6r4ihzabrdpvnepehpaaaaaelftksuqmcc);
+  background-image: url("https://b.yzcdn.cn/v2/image/pf/icon/uncheck.png");
   background-repeat: no-repeat;
   background-size: 18px
 }
@@ -734,8 +733,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 .check.checked,
 .check.delete {
-  border: 1px solid blue;
-  background-image: url(data:image/png;base64,ivborw0kggoaaaansuheugaaacqaaaakcamaaadw3miqaaaas1bmveuaaaazhpszhpoyhpsyhpozg/s0hpwyhpw0hvs8h/9aj/8yg/syg/ozhpsyg/r///+wz/2rvfxtl/pup/vt5p3u5f16r/u91/18spvwf+94aaaadnrstlmavdnfopbcutsreppw8uty9+uaaadesurbvdjllztrdomgdiwpioqx1svm9v5pumrgd7aq7vth8iwnffot4p2louskss4bnzo4ggpfaupokjvuqvihipswwixawon5hb4w8smk16px1fal2x3la6n89pa1lpv36roqj5elqn1rziwi7+pkjdokp8gdj2eshiyzjtaqhjzfds2o+yxxgchmtzsiyxqgojnakhfhiqpixs1cwbbhhfkia2qsr9ylyuelhmcwwojmeo4shagfppcimjt081xwlvpqm58u/31vd0j+ppldexpm8wsjv3r+xwl5dfgbb3w3wciaghaaaaaasuvork5cyii=)
+  background-image: url("https://b.yzcdn.cn/v2/image/pf/icon/check.png")
 }
 
 .bottom-fix .bottom-cart {

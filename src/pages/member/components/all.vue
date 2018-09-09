@@ -6,6 +6,7 @@
       <a class="block-item js-address-item address-item "
          v-for="list in lists"
          :key="list.id"
+         @click = "setDefault(list,lists)"
          :class="{'address-item-default': list.isDefault}"
       >
         <div class="address-title">{{list.name}} {{list.tel}}</div>
@@ -39,6 +40,12 @@ export default {
     }
   },
   methods: {
+    setDefault(list, lists) {
+      lists.forEach((item) => {
+        item.isDefault = false
+      })
+      list.isDefault = true
+    },
     toEdit(list) {
       this.$router.push({
         name: 'form',

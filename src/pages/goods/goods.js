@@ -87,15 +87,20 @@ new Vue({
           this.isAddCart = true
           setTimeout(() => {
             this.isAddCart = false
-          }, 1000)
+          }, 600)
         }
       })
+    },
+    goToCart () {
+      this.addCart()
+      location.href = 'cart.html'
     }
   },
   watch: {
     showSku (val, oldVal) {
+      console.log(val, oldVal)
       document.body.style.overflow = val ? 'hidden' : 'auto'
-      // document.body.style.height = val ? '100%' : 'auto'
+      document.body.style.height = val ? '100%' : 'auto'
     }
   }
 })

@@ -351,7 +351,7 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 6px 15px;
+  padding: 6px 15px 6px 40px;
   background-color: #fafafa;
   z-index: 1001;
   -o-border-image: url("https://b.yzcdn.cn/v2/image/wap/border-line-2.png") 2 stretch;
@@ -460,7 +460,7 @@ only screen and (min-device-pixel-ratio:1.5) {
 .custom-search-type-selection-btn {
   position: absolute;
   top: 6px;
-  left: 15px;
+  left: 40px;
   border: 0 none;
   font-size: 14px;
   color: #666;

@@ -44,6 +44,11 @@ new Vue({
     toTop () {
       document.documentElement.velocity({scrollTop: 0}, {duration: 400})
       this.topShow = false
+    },
+    back() {
+      history.go(-1)
+      // location.href = 'category.html'
+      console.log(location.href)
     }
   }
 })

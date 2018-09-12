@@ -23,7 +23,7 @@
   </style>
 </head>
 
-<body class=" body-fixed-bottom">
+<body class="body-fixed-bottom">
 <div id="app" v-cloak>
   <div class="container " style="min-height: 581px;">
     <div class="content clearfix js-page-content">
@@ -31,6 +31,7 @@
         <div>
           <div class="js-shop-list shop-list">
             <div class="block block-order block-cart" v-for="(shop,shopIndex) in cartLists">
+              <!--店铺渲染-->
               <div class="header">
                 <div class="select-group js-select-group" @click="selectShop(shop)">
                   <span class="check" :class="{checked:shop.checked}" v-show="!editingShop"></span>
@@ -42,6 +43,7 @@
                   {{shop.editingMsg}}
                 </a>
               </div>
+              <!--商品渲染-->
               <div>
                 <ul class="js-list block block-list block-list-cart border-0">
                   <li class="block-item block-item-cart "
@@ -143,10 +145,10 @@
               <!--</div>-->
             <!--</div>-->
           <!--</div>-->
+
+
+          <!--底部结算-->
           <div style="padding:0;" class="js-bottom-opts bottom-fix">
-            <!--<div class="go-shop-tip js-go-shop-tip c-orange font-size-12">-->
-              <!--你需要分开结算每个店铺的商品哦~-->
-            <!--</div>-->
             <div class="bottom-cart clear-fix">
               <div class="select-all" @click="selectAll">
                 <span class="check" :class="{checked: editingShop ? allRemoveSelected : allSelected}"></span>
@@ -173,25 +175,23 @@
       </div>
     </div>
   </div>
-  <div class="van-dialog" style="z-index: 2008;" v-show="isRemoveGoods"><!---->
+  <!--确认弹框-->
+  <div class="van-dialog" style="z-index: 2008;" v-show="isRemoveGoods">
     <div class="van-dialog__content van-hairline">
       <div class="van-dialog__message">{{removeMsg}}</div>
     </div>
     <div class="van-dialog__footer is-twobtn">
       <button class="van-button van-dialog__cancel van-button--default van-button--large" style=""
               @click="cancelRemove"
-      ><!----><span
-        class="van-button__text">
+      ><span class="van-button__text">
         取消
       </span></button>
       <button class="van-button van-dialog__confirm van-button--default van-button--large van-hairline--left"
               @click="confirmRemove"
-      >
-        <!----><span class="van-button__text">
+      ><span class="van-button__text">
         确认
       </span></button>
     </div>
-    <!--<div class="van-modal" style="z-index: 2000;"></div>-->
   </div>
   <div class="van-modal" style="z-index: 2000;" v-show="isRemoveGoods"></div>
   <!--<div class="footer" style="min-height: 86px;">-->
